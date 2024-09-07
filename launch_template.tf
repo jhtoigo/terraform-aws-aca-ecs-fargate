@@ -2,6 +2,8 @@ resource "aws_launch_template" "on_demand" {
   name_prefix = format("%s-on-demand", var.project_name)
   image_id    = var.node_ami
 
+  instance_type = var.node_instance_type
+
   vpc_security_group_ids = [
     aws_security_group.main_ecs.id
   ]
