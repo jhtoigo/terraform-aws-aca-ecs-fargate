@@ -30,6 +30,6 @@ load_balancer_type = "application"
 
 ## ECS Cluster 
 
-nodes_ami = ""
+node_ami = ""
 
 node_instance_type = ""
