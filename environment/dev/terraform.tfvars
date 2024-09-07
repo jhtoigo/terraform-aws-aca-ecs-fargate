@@ -30,6 +30,16 @@ load_balancer_type = "application"
 
 ## ECS Cluster 
 
-node_ami = ""
+node_ami = "ami-09d3335e2eaf06692"
 
-node_instance_type = ""
+node_instance_type = "t3.micro"
+
+node_volume_size = "30"
+
+node_volume_type = "gp3"
+
+cluster_on_demand_min_size = 1
+
+cluster_on_demand_max_size = 3
+
+cluster_on_demand_desired_size = 2
