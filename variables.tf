@@ -13,50 +13,85 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "ssm_vpc_id" {}
+### VPC
 
-variable "ssm_public_subnet_1" {}
+variable "nat_gateway_active" {
+  description = "Create or not NAT Gateways"
+  type        = bool
+}
 
-variable "ssm_public_subnet_2" {}
+### Load Balancer
 
-variable "ssm_public_subnet_3" {}
+variable "lb_active" {
+  description = "Create or not Load balancer"
+  type        = bool
+}
 
-variable "ssm_private_subnet_1" {}
+variable "load_balancer_type" {
+  description = "Type of Load Balancer"
+  type        = string
+}
 
-variable "ssm_private_subnet_2" {}
+variable "load_balancer_internal" {
+  description = "Internal or external lb"
+  type        = string
+}
 
-variable "ssm_private_subnet_3" {}
+### ASG templete
 
-variable "ssm_database_subnet_1" {}
+variable "node_instance_type" {
+  description = "Ec2 Instance type"
+  type        = string
+}
 
-variable "ssm_database_subnet_2" {}
+variable "node_volume_size" {
+  description = "Cluster EC2 node volume size"
+}
 
-variable "ssm_database_subnet_3" {}
+variable "node_volume_type" {
+  description = "Cluster EC2 node volume type"
+}
 
-## Balancer
+variable "node_ami" {
+  description = "ECS Cluster AMI"
+  type        = string
+}
 
-variable "load_balancer_internal" {}
+### ASG Spot
 
-variable "load_balancer_type" {}
+variable "cluster_spot_desired_size" {
+  description = "ASG Spot Desired size"
+  type        = number
+}
 
-## ECS General
+variable "cluster_spot_min_size" {
+  description = "ASG Spot Minimal size"
+  type        = number
+}
 
-variable "node_ami" {}
+variable "cluster_spot_max_size" {
+  description = "ASG Spot Max size"
+  type        = number
+}
 
-variable "node_instance_type" {}
+variable "spot_enabled" {
+  description = "Create or not ASG with spot instances"
+  type        = bool
+}
 
-variable "node_volume_size" {}
+### ASG
 
-variable "node_volume_type" {}
+variable "cluster_on_demand_desired_size" {
+  description = "ASG Spot Desired size"
+  type        = number
+}
 
-variable "cluster_on_demand_min_size" {}
+variable "cluster_on_demand_max_size" {
+  description = "ASG Spot Max size"
+  type        = number
+}
 
-variable "cluster_on_demand_max_size" {}
-
-variable "cluster_on_demand_desired_size" {}
-
-variable "cluster_spot_min_size" {}
-
-variable "cluster_spot_max_size" {}
-
-variable "cluster_spot_desired_size" {}
+variable "cluster_on_demand_min_size" {
+  description = "ASG Spot Minimal size"
+  type        = number
+}
