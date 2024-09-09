@@ -1,4 +1,5 @@
 resource "aws_launch_template" "spots" {
+  count       = var.spot_enabled ? 1 : 0
   name_prefix = format("%s-spots", var.project_name)
   image_id    = var.node_ami
 

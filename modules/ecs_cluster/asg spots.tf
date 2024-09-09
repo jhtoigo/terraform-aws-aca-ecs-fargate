@@ -1,4 +1,5 @@
 resource "aws_autoscaling_group" "spots" {
+  count = var.spot_enabled ? 1 : 0
   name_prefix = format("%s-spots", var.project_name)
   vpc_zone_identifier = var.asg_vpc_zone_identifier
   desired_capacity = var.cluster_spot_desired_size
@@ -6,8 +7,8 @@ resource "aws_autoscaling_group" "spots" {
   min_size         = var.cluster_spot_min_size
 
   launch_template {
-    id      = aws_launch_template.spots.id
-    version = aws_launch_template.spots.latest_version
+    id      = aws_launch_template.spots[0].id
+    version = aws_launch_template.spots[0].latest_version
   }
 
   tag {
@@ -25,10 +26,11 @@ resource "aws_autoscaling_group" "spots" {
 }
 
 resource "aws_ecs_capacity_provider" "spots" {
+  count = length(aws_autoscaling_group.spots) > 0 ? 1 : 0
   name = format("%s-spots", var.project_name)
 
   auto_scaling_group_provider {
-    auto_scaling_group_arn = aws_autoscaling_group.spots.arn
+    auto_scaling_group_arn = aws_autoscaling_group.spots[0].arn
     managed_scaling {
       maximum_scaling_step_size = 10
       minimum_scaling_step_size = 1
