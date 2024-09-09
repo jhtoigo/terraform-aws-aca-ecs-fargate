@@ -58,17 +58,17 @@ variable "asg_vpc_zone_identifier" {
 ### ASG Spot
 
 variable "cluster_spot_desired_size" {
-  description = "ASG Spot Desired dize"
+  description = "ASG Spot Desired size"
   type        = number
 }
 
 variable "cluster_spot_min_size" {
-  description = "ASG Spot Desired dize"
+  description = "ASG Spot Desired size"
   type        = number
 }
 
 variable "cluster_spot_max_size" {
-  description = "ASG Spot Desired dize"
+  description = "ASG Spot Desired size"
   type        = number
 }
 
@@ -80,17 +80,17 @@ variable "spot_enabled" {
 ### ASG
 
 variable "cluster_on_demand_desired_size" {
-  description = "ASG Spot Desired dize"
+  description = "ASG Spot Desired size"
   type        = number
 }
 
 variable "cluster_on_demand_max_size" {
-  description = "ASG Spot Desired dize"
+  description = "ASG Spot Desired size"
   type        = number
 }
 
 variable "cluster_on_demand_min_size" {
-  description = "ASG Spot Desired dize"
+  description = "ASG Spot Desired size"
   type        = number
 }
 
