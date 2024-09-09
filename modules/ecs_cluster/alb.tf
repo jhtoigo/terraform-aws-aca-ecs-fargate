@@ -1,6 +1,6 @@
 resource "aws_security_group" "lb" {
   name   = format("%s-load-balancer", var.project_name)
-  vpc_id = data.aws_ssm_parameter.vpc.value
+  vpc_id = var.vpc_id
 
   egress {
     from_port = 0
@@ -38,11 +38,7 @@ resource "aws_lb" "main" {
   internal           = var.load_balancer_internal
   load_balancer_type = var.load_balancer_type
 
-  subnets = [
-    data.aws_ssm_parameter.ssm_public_subnet_1a.value,
-    data.aws_ssm_parameter.ssm_public_subnet_1b.value,
-    data.aws_ssm_parameter.ssm_public_subnet_1c.value
-  ]
+  subnets = var.load_balancer_public_subnets
 
   security_groups = [
     aws_security_group.lb.id
