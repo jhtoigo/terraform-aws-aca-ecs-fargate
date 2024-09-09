@@ -1,5 +1,7 @@
+## Stack
+
 region       = "us-east-1"
-tags         = { "Project" = "linuxtips-aca-ecs", "Environment" = "dev" }
+tags         = { "Project" = "linuxtips-aca", "Environment" = "dev" }
 project_name = "linuxtips-aca-ecs"
 
 ssm_vpc_id = "/linuxtips-project/vpc/vpc_id"
@@ -42,10 +44,10 @@ cluster_on_demand_min_size = 1
 
 cluster_on_demand_max_size = 3
 
-cluster_on_demand_desired_size = 2
+cluster_on_demand_desired_size = 3
 
 cluster_spot_min_size = 1
 
 cluster_spot_max_size = 3
 
-cluster_spot_desired_size = 2
+cluster_spot_desired_size = 3
