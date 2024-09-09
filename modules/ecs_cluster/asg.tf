@@ -1,10 +1,6 @@
 resource "aws_autoscaling_group" "on_demamnd" {
-  name_prefix = format("%s-on-demand", var.project_name)
-  vpc_zone_identifier = [
-    data.aws_ssm_parameter.ssm_private_subnet_1a.value,
-    data.aws_ssm_parameter.ssm_private_subnet_1b.value,
-    data.aws_ssm_parameter.ssm_private_subnet_1c.value,
-  ]
+  name_prefix         = format("%s-on-demand", var.project_name)
+  vpc_zone_identifier = var.asg_vpc_zone_identifier
 
   desired_capacity = var.cluster_on_demand_desired_size
   max_size         = var.cluster_on_demand_max_size
