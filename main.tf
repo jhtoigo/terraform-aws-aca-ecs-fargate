@@ -7,7 +7,7 @@ module "vpc" {
   database_subnets   = ["10.0.50.0/24", "10.0.51.0/24", "10.0.52.0/24"]
   tags               = var.tags
   project_name       = var.project_name
-  nat_gateway_active = false
+  nat_gateway_active = var.nat_gateway_active
 }
 
 module "ecs_cluster" {
@@ -18,7 +18,7 @@ module "ecs_cluster" {
 
   vpc_id = module.vpc.vpc_id
 
-  # ASG Template
+  # ASG Templates
   node_ami                = var.node_ami
   node_instance_type      = var.node_instance_type
   node_volume_size        = var.node_volume_size
@@ -26,7 +26,7 @@ module "ecs_cluster" {
   asg_vpc_zone_identifier = module.vpc.private_subnets
 
   ## Load Balancer
-  lb_active                    = false
+  lb_active                    = var.lb_active
   load_balancer_internal       = var.load_balancer_internal
   load_balancer_type           = var.load_balancer_type
   load_balancer_public_subnets = module.vpc.public_subnets
@@ -37,7 +37,7 @@ module "ecs_cluster" {
   cluster_on_demand_max_size     = var.cluster_on_demand_max_size
 
   ## ASG Spot Size
-  spot_enabled              = false
+  spot_enabled              = var.spot_enabled
   cluster_spot_desired_size = var.cluster_on_demand_desired_size
   cluster_spot_min_size     = var.cluster_spot_min_size
   cluster_spot_max_size     = var.cluster_spot_max_size
