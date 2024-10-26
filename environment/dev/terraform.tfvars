@@ -10,7 +10,7 @@ nat_gateway_active = false
 
 ## Load balancer
 
-lb_active = false
+lb_active = true
 
 load_balancer_internal = false
 

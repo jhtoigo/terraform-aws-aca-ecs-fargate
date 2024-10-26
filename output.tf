@@ -21,3 +21,7 @@ output "ssm_database_subnets_id" {
   description = "SSM parameter IDs to database subnets IDs"
   value       = module.vpc.ssm_database_subnets_id
 }
+
+output "ssm_alb_listener" {
+  value = module.ecs_cluster.load_balancer_listner
+}
