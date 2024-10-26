@@ -20,7 +20,7 @@ load_balancer_type = "application"
 
 node_ami = "ami-09d3335e2eaf06692"
 
-node_instance_type = "t3.micro"
+node_instance_type = "t3.medium"
 
 node_volume_size = "30"
 
