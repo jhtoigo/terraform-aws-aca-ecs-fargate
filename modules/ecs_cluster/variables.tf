@@ -34,3 +34,8 @@ variable "tags" {
   type        = map(string)
 }
 
+variable "capacity_providers" {
+  description = "ECS Cluster capacity providers"
+  type        = list(string)
+  default     = ["FARGATE", "FARGATE_SPOT"]
+}

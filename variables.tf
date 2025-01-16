@@ -36,3 +36,7 @@ variable "load_balancer_internal" {
   description = "Internal or external lb"
   type        = string
 }
+
+variable "capacity_providers" {
+  type = list(string)
+}
