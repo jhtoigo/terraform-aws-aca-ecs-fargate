@@ -1,6 +1,9 @@
 output "load_balancer_dns" {
   value = module.ecs_cluster.load_balancer_dns
 }
+output "ssm_lb_arn" {
+  value = module.ecs_cluster.ssm_lb_arn
+}
 
 output "ssm_vpc_id" {
   description = "SSM Parameter ID to VPC ID"
