@@ -6,7 +6,7 @@ project_name = "linuxtips-aca-ecs"
 
 ## VPC
 
-nat_gateway_active = false
+nat_gateway_active = true
 
 ## Load balancer
 
