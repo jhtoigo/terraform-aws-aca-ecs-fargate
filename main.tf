@@ -18,27 +18,9 @@ module "ecs_cluster" {
 
   vpc_id = module.vpc.vpc_id
 
-  # ASG Templates
-  node_ami                = var.node_ami
-  node_instance_type      = var.node_instance_type
-  node_volume_size        = var.node_volume_size
-  node_volume_type        = var.node_volume_type
-  asg_vpc_zone_identifier = module.vpc.private_subnets
-
   ## Load Balancer
   lb_active                    = var.lb_active
   load_balancer_internal       = var.load_balancer_internal
   load_balancer_type           = var.load_balancer_type
   load_balancer_public_subnets = module.vpc.public_subnets
-
-  ## ASG Size
-  cluster_on_demand_desired_size = var.cluster_on_demand_desired_size
-  cluster_on_demand_min_size     = var.cluster_on_demand_min_size
-  cluster_on_demand_max_size     = var.cluster_on_demand_max_size
-
-  ## ASG Spot Size
-  spot_enabled              = var.spot_enabled
-  cluster_spot_desired_size = var.cluster_on_demand_desired_size
-  cluster_spot_min_size     = var.cluster_spot_min_size
-  cluster_spot_max_size     = var.cluster_spot_max_size
 }
