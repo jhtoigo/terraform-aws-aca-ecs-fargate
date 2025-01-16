@@ -29,7 +29,7 @@ node_volume_type = "gp3"
 ## ASG On demand
 cluster_on_demand_min_size = 1
 
-cluster_on_demand_max_size = 3
+cluster_on_demand_max_size = 6
 
 cluster_on_demand_desired_size = 3
 
@@ -39,6 +39,6 @@ spot_enabled = false
 
 cluster_spot_min_size = 1
 
-cluster_spot_max_size = 3
+cluster_spot_max_size = 6
 
 cluster_spot_desired_size = 3
