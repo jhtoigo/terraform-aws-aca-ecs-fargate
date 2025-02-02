@@ -27,6 +27,11 @@ variable "lb_active" {
   type        = bool
 }
 
+variable "lb_internal_active" {
+  description = "Create or not Internal Load balancer"
+  type        = bool
+}
+
 variable "load_balancer_type" {
   description = "Type of Load Balancer"
   type        = string

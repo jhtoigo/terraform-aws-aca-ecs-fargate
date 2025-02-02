@@ -19,8 +19,10 @@ module "ecs_cluster" {
   vpc_id = module.vpc.vpc_id
 
   ## Load Balancer
-  lb_active                    = var.lb_active
-  load_balancer_internal       = var.load_balancer_internal
-  load_balancer_type           = var.load_balancer_type
-  load_balancer_public_subnets = module.vpc.public_subnets
+  lb_active                     = var.lb_active
+  lb_internal_active            = var.lb_internal_active
+  load_balancer_internal        = var.load_balancer_internal
+  load_balancer_type            = var.load_balancer_type
+  load_balancer_public_subnets  = module.vpc.public_subnets
+  load_balancer_private_subnets = module.vpc.private_subnets
 }

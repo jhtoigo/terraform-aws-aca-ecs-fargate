@@ -11,3 +11,17 @@ resource "aws_ssm_parameter" "lb_listener" {
   value = aws_lb_listener.main[count.index].id
   type  = "String"
 }
+
+resource "aws_ssm_parameter" "lb_internal_arn" {
+  count = var.lb_internal_active ? 1 : 0
+  name  = format("/%s/ecs/lb_internal/id", var.project_name)
+  value = aws_lb.internal[count.index].arn
+  type  = "String"
+}
+
+resource "aws_ssm_parameter" "lb_internal_listener" {
+  count = var.lb_internal_active ? 1 : 0
+  name  = format("/%s/ecs/lb_internal/listenernet", var.project_name)
+  value = aws_lb_listener.internal[count.index].id
+  type  = "String"
+}

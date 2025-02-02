@@ -15,6 +15,11 @@ variable "lb_active" {
   type        = bool
 }
 
+variable "lb_internal_active" {
+  description = "Create or not Internal Load balancer"
+  type        = bool
+}
+
 variable "load_balancer_type" {
   description = "Type of Load Balancer"
   type        = string
@@ -27,6 +32,11 @@ variable "load_balancer_internal" {
 
 variable "load_balancer_public_subnets" {
   description = "Load Balancer Public Subnets"
+  type        = list(string)
+}
+
+variable "load_balancer_private_subnets" {
+  description = "Load Balancer Private Subnets"
   type        = list(string)
 }
 variable "tags" {

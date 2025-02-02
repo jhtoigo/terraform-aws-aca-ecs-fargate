@@ -12,6 +12,8 @@ nat_gateway_active = true
 
 lb_active = true
 
+lb_internal_active = true
+
 load_balancer_internal = false
 
 load_balancer_type = "application"
