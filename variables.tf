@@ -38,5 +38,7 @@ variable "load_balancer_internal" {
 }
 
 variable "capacity_providers" {
-  type = list(string)
+  description = "ECS Cluster capacity providers"
+  type        = list(string)
+  default     = ["FARGATE", "FARGATE_SPOT"]
 }
