@@ -27,3 +27,8 @@ output "ssm_lb_internal_arn" {
   description = "Internal Load Balancer ARN"
   value       = try(aws_ssm_parameter.lb_internal_arn[*].name)
 }
+
+output "cloudmap_ssm" {
+  description = "CloudMap Namespace ID"
+  value       = aws_ssm_parameter.cloudmap.name
+}

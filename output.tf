@@ -37,3 +37,7 @@ output "ssm_database_subnets_id" {
   description = "SSM parameter IDs to database subnets IDs"
   value       = module.vpc.ssm_database_subnets_id
 }
+output "cloudmap_ssm" {
+  description = "CloudMap Namespace SSM"
+  value       = module.ecs_cluster.cloudmap_ssm
+}
